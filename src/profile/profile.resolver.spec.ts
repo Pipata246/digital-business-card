@@ -1,3 +1,4 @@
+
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProfileResolver } from './profile.resolver.js';
 import { ProfileService } from './profile.service.js';
@@ -43,6 +44,15 @@ describe('ProfileResolver', () => {
     const result = await profileResolver.profile();
 
     expect(result).toEqual(mockProfile);
+    expect(mockProfileService.getProfile).toHaveBeenCalledTimes(1);
+  });
+
+  it('should return null when profile does not exist', async () => {
+    mockProfileService.getProfile.mockResolvedValue(null);
+
+    const result = await profileResolver.profile();
+
+    expect(result).toBeNull();
     expect(mockProfileService.getProfile).toHaveBeenCalledTimes(1);
   });
 });

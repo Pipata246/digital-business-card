@@ -1,3 +1,4 @@
+
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProfileService } from './profile.service.js';
 import { PrismaService } from '../prisma/prisma.service.js';
@@ -7,7 +8,7 @@ describe('ProfileService', () => {
 
   const mockPrismaService = {
     profile: {
-      findFirst: vi.fn(),
+      findUnique: vi.fn(),
     },
   };
 
@@ -43,12 +44,13 @@ describe('ProfileService', () => {
       projects: [{ id: 1, name: 'Персональный сайт', description: 'Портфолио' }],
     };
 
-    mockPrismaService.profile.findFirst.mockResolvedValue(mockProfile);
+    mockPrismaService.profile.findUnique.mockResolvedValue(mockProfile);
 
     const result = await profileService.getProfile();
 
     expect(result).toEqual(mockProfile);
-    expect(mockPrismaService.profile.findFirst).toHaveBeenCalledWith({
+    expect(mockPrismaService.profile.findUnique).toHaveBeenCalledWith({
+      where: { id: 1 },
       include: {
         skills: true,
         experiences: true,
