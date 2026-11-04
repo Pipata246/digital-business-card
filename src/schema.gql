@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type ExperienceType {
+  company: String!
+  description: String
+  endDate: DateTime
+  id: Int!
+  position: String!
+  startDate: DateTime!
+}
+
+type ProfileType {
+  createdAt: DateTime!
+  description: String!
+  email: String
+  experiences: [ExperienceType!]!
+  id: Int!
+  name: String!
+  phone: String
+  projects: [ProjectType!]!
+  skills: [SkillType!]!
+  updatedAt: DateTime!
+  website: String
+}
+
+type ProjectType {
+  description: String!
+  id: Int!
+  name: String!
+  url: String
+}
+
+type Query {
+  hello: String!
+  profile: ProfileType
+}
+
+type SkillType {
+  id: Int!
+  level: String
+  name: String!
+}

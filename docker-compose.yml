@@ -1,0 +1,22 @@
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: digital-card-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: developer
+      POSTGRES_PASSWORD: developer_password
+      POSTGRES_DB: digital_card
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U developer -d digital_card"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
