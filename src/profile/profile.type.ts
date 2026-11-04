@@ -15,13 +15,13 @@ export class ProfileType {
   description: string;
 
   @Field({ nullable: true })
-  email?: string;
+email: string | null;
 
-  @Field({ nullable: true })
-  phone?: string;
+@Field({ nullable: true })
+phone: string | null;
 
-  @Field({ nullable: true })
-  website?: string;
+@Field({ nullable: true })
+website: string | null;
 
   @Field()
   createdAt: Date;

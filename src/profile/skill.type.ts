@@ -9,5 +9,5 @@ export class SkillType {
   name: string;
 
   @Field({ nullable: true })
-  level?: string;
+level: string | null;
 }

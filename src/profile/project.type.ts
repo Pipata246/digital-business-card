@@ -12,5 +12,5 @@ export class ProjectType {
   description: string;
 
   @Field({ nullable: true })
-  url?: string;
+url: string | null;
 }
