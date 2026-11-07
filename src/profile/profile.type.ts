@@ -23,6 +23,12 @@ export class ProfileType {
   @Field(() => String, { nullable: true })
   website: string | null;
 
+    @Field(() => String, { nullable: true })
+  github: string | null;
+
+  @Field(() => String, { nullable: true })
+  telegram: string | null;
+
   @Field()
   createdAt: Date;
 

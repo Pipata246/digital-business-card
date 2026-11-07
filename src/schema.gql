@@ -21,11 +21,13 @@ type ProfileType {
   description: String!
   email: String
   experiences: [ExperienceType!]!
+  github: String
   id: Int!
   name: String!
   phone: String
   projects: [ProjectType!]!
   skills: [SkillType!]!
+  telegram: String
   updatedAt: DateTime!
   website: String
 }
