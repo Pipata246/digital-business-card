@@ -8,6 +8,6 @@ export class SkillType {
   @Field()
   name: string;
 
-  @Field({ nullable: true })
-level: string | null;
+  @Field(() => String, { nullable: true })
+  level: string | null;
 }

@@ -14,14 +14,14 @@ export class ProfileType {
   @Field()
   description: string;
 
-  @Field({ nullable: true })
-email: string | null;
+  @Field(() => String, { nullable: true })
+  email: string | null;
 
-@Field({ nullable: true })
-phone: string | null;
+  @Field(() => String, { nullable: true })
+  phone: string | null;
 
-@Field({ nullable: true })
-website: string | null;
+  @Field(() => String, { nullable: true })
+  website: string | null;
 
   @Field()
   createdAt: Date;

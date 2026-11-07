@@ -11,12 +11,12 @@ export class ExperienceType {
   @Field()
   position: string;
 
-  @Field({ nullable: true })
-description: string | null;
+  @Field(() => String, { nullable: true })
+  description: string | null;
 
   @Field(() => Date)
   startDate: Date;
 
   @Field(() => Date, { nullable: true })
-endDate: Date | null;
+  endDate: Date | null;
 }
